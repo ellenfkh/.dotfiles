@@ -20,6 +20,7 @@ Plugin 'tpope/vim-fugitive'
 "Plugin 'honza/vim-snippets'
 Plugin 'Raimondi/delimitMate.git'
 Plugin 'kien/ctrlp.vim'
+Plugin 'Lokaltog/vim-powerline'
 
 call vundle#end()
 filetype plugin indent on
@@ -46,6 +47,8 @@ let g:indentLine_color_term = 239
 "let g:UltiSnipsExpandTrigger="<c-n>"
 "let g:UltiSnipsJumpForwardTrigger="<c-b"
 "let g:UltiSnipsJumpBackwardTrigger="<c-z"
+
+let g:Powerline_symbols = 'fancy'
 
 nmap <F3> :TagbarToggle<CR>
 nmap <F5> :NERDTreeToggle<CR>
