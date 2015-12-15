@@ -20,7 +20,8 @@ Plugin 'tpope/vim-fugitive'
 "Plugin 'honza/vim-snippets'
 Plugin 'Raimondi/delimitMate.git'
 Plugin 'kien/ctrlp.vim'
-Plugin 'Lokaltog/vim-powerline'
+"Plugin 'Lokaltog/vim-powerline'
+Plugin 'uarun/vim-protobuf'
 
 call vundle#end()
 filetype plugin indent on
@@ -63,8 +64,12 @@ au BufNewFile,BufRead *.py set wrapmargin=20
 au BufNewFile,BufRead *.cpp set textwidth=80
 au BufNewFile,BufRead *.hpp set textwidth=80
 
+let g:EclimCompletionMethod = 'omnifunc'
+
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
+
+set wildignore+=*/tmp/*,*/target/*
 
 
 set laststatus=2 ruler showcmd

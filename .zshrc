@@ -22,10 +22,13 @@ fg_normal="$(print '%{\e[0m%}')"
 
 PROMPT='(%!) %(!.${fg_red}.${fg_green})%n${fg_normal}@%B%m%b [%3c]$(git_super_status) %# '
 
-#source /clinic/2014/sandia14/sandia14-env-variables.sh
-
 HISTSIZE=1000
 HISTFILESIZE=2000
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
+
+alias mci="mvn clean install -DskipTests"
+alias mpkg="mvn clean install -DskipTests -Dtar -Pdist -Dmaven.javadoc.skip=true"
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+
