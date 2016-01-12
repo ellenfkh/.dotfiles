@@ -57,9 +57,9 @@ nmap <F4> :TaskList<CR>
 nmap <F6> :CtrlP <CR>
 inoremap jj <Esc>
 
-au BufNewFile,BufRead * set textwidth=80
+" au BufNewFile,BufRead * set textwidth=80
 au BufNewFile,BufRead *.tex set textwidth=80
-au BufNewFile,BufRead *.tex set spell
+au BufNewFile,BufRead *.java set textwidth=80
 au BufNewFile,BufRead *.py set wrapmargin=20
 au BufNewFile,BufRead *.cpp set textwidth=80
 au BufNewFile,BufRead *.hpp set textwidth=80
