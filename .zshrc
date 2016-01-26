@@ -5,8 +5,11 @@ alias l='ls -CF'
 
 setopt nobeep
 
+export HADOOP_HOME=/home/elhui/Desktop/hadoop/hadoop-dist/target/hadoop-2.6.0
 export PATH=~/.cabal/bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:$PATH
-export PATH=$PATH:$HADOOP_HOME/bin
+export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+export HADOOP_CONF_DIR=/home/elhui/Desktop/confLocalHadoop
+export YARN_CONF_DIR=/home/elhui/Desktop/confLocalHadoop
 
 autoload -Uz compinit
 compinit
@@ -30,5 +33,7 @@ export EDITOR="$VISUAL"
 
 alias mci="mvn clean install -DskipTests"
 alias mpkg="mvn clean install -DskipTests -Dtar -Pdist -Dmaven.javadoc.skip=true"
-export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
 
+alias gcp="git cherry-pick -x"
+
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
