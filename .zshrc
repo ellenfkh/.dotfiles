@@ -1,31 +1,51 @@
-alias ls="ls --color"
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-setopt nobeep
+ZSH_DISABLE_COMPFIX=true
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/ellen/.oh-my-zsh"
 
-export PATH=~/.cabal/bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:$PATH
-export PATH=$PATH:$HADOOP_HOME/bin
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+#ZSH_THEME="robbyrussell"
+#pygmalion
+ZSH_THEME="pygmalion"
 
-autoload -Uz compinit
-compinit
-zstyle ':completion:*' list-colors 'exfxcxdxbxegedabagacad'
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git fzf)
 
-source ~/.zsh/zsh-git-prompt/zshrc.sh
+source $ZSH/oh-my-zsh.sh
 
-GIT_PROMPT_EXECUTABLE="haskell"
 
-fg_red="$(print '%{\e[1;31m%}')"
-fg_green="$(print '%{\e[1;32m%}')"
-fg_normal="$(print '%{\e[0m%}')"
+# User configuration
+export PATH="$PATH:/Users/ellen/.cargo/bin"
 
-PROMPT='(%!) %(!.${fg_red}.${fg_green})%n${fg_normal}@%B%m%b [%3c]$(git_super_status) %# '
+#export MANPATH="/usr/local/man:$MANPATH"
 
-#source /clinic/2014/sandia14/sandia14-env-variables.sh
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
 
-HISTSIZE=1000
-HISTFILESIZE=2000
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
-export VISUAL=vim
-export EDITOR="$VISUAL"
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
