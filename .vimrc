@@ -1,37 +1,33 @@
-set nocompatible
-filetype off
-set ruler
 
-set rtp+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree'
-Plugin 'fholgado/minibufexpl.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-scripts/TaskList.vim'
-Plugin 'yggdroot/indentline'
-Plugin 'tpope/vim-fugitive'
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree'
+Plug 'fholgado/minibufexpl.vim'
+Plug 'majutsushi/tagbar'
+Plug 'Valloric/YouCompleteMe'
+Plug 'vim-scripts/TaskList.vim'
+Plug 'yggdroot/indentline'
+Plug 'tpope/vim-fugitive'
 "Plugin 'SirVer/ultisnips'
 "Plugin 'honza/vim-snippets'
-Plugin 'Raimondi/delimitMate.git'
-Plugin 'kien/ctrlp.vim'
-Plugin 'Lokaltog/vim-powerline'
+Plug 'kien/ctrlp.vim'
+Plug 'Lokaltog/vim-powerline'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+#Plug 'multilobyte/gtags-cscope'
+Plug 'neovim/nvim-lspconfig'
 
-call vundle#end()
+call plug#end()
+
 filetype plugin indent on
 
+set nocompatible
+set ruler
 set number
 set ignorecase
 set smartcase
 syntax on
 
 set cursorline
-
 set tabstop=8
 set expandtab
 set shiftwidth=4
@@ -68,3 +64,39 @@ let g:tex_flavor='latex'
 
 
 set laststatus=2 ruler showcmd
+colorscheme slate
+
+" vim-go keyboard mappings for godef conflict with gtags-cscope
+let g:go_def_mapping_enabled = 0
+
+" gopls just chews through CPU; not needed with gtags / gnu global
+let g:go_gopls_enabled = 0
+
+" run `gogtags` to generate GTAGS and friends
+if filereadable("GTAGS")
+    let g:GtagsCscope_Auto_Load = 1
+endif
+
+augroup filetype_go
+    autocmd!
+    autocmd BufWritePre *.go call go#auto#fmt_autosave()
+augroup end
+
+" To use the default key/mouse mapping:
+"let GtagsCscope_Auto_Map = 1
+" To ignore letter case when searching:
+let GtagsCscope_Ignore_Case = 1
+" To use absolute path name:
+let GtagsCscope_Absolute_Path = 1
+" To deterring interruption:
+let GtagsCscope_Keep_Alive = 1
+" If you hope auto loading:
+let GtagsCscope_Auto_Load = 1
+" To use 'vim -t ', ':tag' and '<C-]>'
+"set cscopetag
+" To auto update tags when a file is saved 
+let GtagsCscope_Auto_Update = 1
+
+
+
+
