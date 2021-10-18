@@ -56,11 +56,11 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 
-end 
+end
 lspconfig.gopls.setup{
     on_attach = on_attach,
     init_options = { usePlaceholders = true }
-} 
+}
 
 EOF
 
