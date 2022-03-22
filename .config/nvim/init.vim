@@ -48,18 +48,8 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
   buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 
-
---  this is broken for some reason. i will loop manually. with my hands.
--- end
---- local servers = {'gopls', 'solargraph'}
---- for _, lsp in ipairs(servers) do
----   nvim_lsp[lsp].setup {
----   on_attach = on_attach,
----     init_options = { usePlaceholders = true }
----   }
---- 
-
 end 
+
 lspconfig.gopls.setup{
     on_attach = on_attach,
     init_options = { usePlaceholders = true }
@@ -79,6 +69,7 @@ set ruler
 set number
 set ignorecase
 set smartcase
+set ignorecase
 
 set cursorline
 set tabstop=4
