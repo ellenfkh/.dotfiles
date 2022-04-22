@@ -6,6 +6,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'neovim/nvim-lspconfig'
 Plug 'scrooloose/nerdtree'
 Plug 'shaunsingh/moonlight.nvim'
+Plug 'psf/black', { 'branch': 'stable' }
 
 call plug#end()
 
@@ -16,8 +17,9 @@ set nocompatible
 syntax on
 
 set omnifunc=syntaxcomplete#Complete
-
 nmap <C-P> :FZF<CR>
+:map <F2> :NERDTreeToggle<CR>
+
 
 " LSP "
 
@@ -77,6 +79,9 @@ set expandtab
 set shiftwidth=4
 set softtabstop=4
 set hlsearch
+
+autocmd BufWrite *.py execute ':Black'
+autocmd BufWrite *.sy execute ':Black'
 
 let g:Powerline_symbols = 'fancy'
 
