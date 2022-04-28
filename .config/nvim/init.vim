@@ -1,16 +1,12 @@
 call plug#begin('~/.vim/plugged')
 Plug 'fholgado/minibufexpl.vim'
 Plug 'yggdroot/indentline'
-Plug 'kien/ctrlp.vim'
+"Plug 'kien/ctrlp.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'neovim/nvim-lspconfig'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-Plug 'yashguptaz/calvera-dark.nvim'
-Plug 'shaunsingh/nord.nvim'
-Plug 'frenzyexists/aquarium-vim', { 'branch': 'develop' }
-Plug 'EdenEast/nightfox.nvim'
-Plug 'mangeshrex/uwu.vim'
+Plug 'scrooloose/nerdtree'
 Plug 'shaunsingh/moonlight.nvim'
+Plug 'psf/black', { 'branch': 'stable' }
 
 call plug#end()
 
@@ -23,6 +19,8 @@ set nocompatible
 syntax on
 
 set omnifunc=syntaxcomplete#Complete
+nmap <C-P> :FZF<CR>
+:map <F2> :NERDTreeToggle<CR>
 
 
 " LSP "
@@ -54,13 +52,18 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
   buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 
+end 
 
-
-end
 lspconfig.gopls.setup{
     on_attach = on_attach,
     init_options = { usePlaceholders = true }
 }
+
+lspconfig.solargraph.setup{
+    on_attach = on_attach,
+    init_options = { usePlaceholders = true }
+}
+
 
 EOF
 
@@ -68,15 +71,19 @@ EOF
 set laststatus=2 ruler showcmd
 set ruler
 set number
+set ignorecase
 set smartcase
 set ignorecase
 
 set cursorline
-set tabstop=8
+set tabstop=4
 set expandtab
 set shiftwidth=4
 set softtabstop=4
 set hlsearch
+
+autocmd BufWrite *.py execute ':Black'
+autocmd BufWrite *.sy execute ':Black'
 
 let g:Powerline_symbols = 'fancy'
 
