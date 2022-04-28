@@ -1,0 +1,31 @@
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+end
+
+export EDITOR=nvim
+set -gx PATH $PATH /bin $HOME/.krew/bin $HOME/go/bin /opt/homebrew/bin
+
+alias vi=nvim
+export GOPATH=(go env GOPATH)
+alias k8=/usr/local/bin/kubectl_1.8.15
+
+export GOPATH=/Users/ehui/go:/Users/ehui/go/src/github.com/muxinc/mux/bazel-bin/data/gopath:/Users/ehui/go/src/github.com/muxinc/mux/bazel-bin/video/gopath:/Users/ehui/go/src/github.com/muxinc/mux/bazel-bin/spaces/gopath
+
+
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
+# export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+fzf_configure_bindings --directory=\ct
+set -Ux LSCOLORS gxfxbEaEBxxEhEhBaDaCaD
+
+export KUBECONFIG="/Users/ehui/.kube/config"
+export REPO="/Users/ehui/go/src/github.com/muxinc/mux"
+export GOPACKAGESDRIVER=$REPO/tools/bazel/gopackagesdriver.sh
+export LOCAL_REGISTRY="registry.localhost:5000"
+export VAULT_ADDR="https://vault.staging.mux.io"
+
+alias fixsdm='sdm disconnect --all;sdm connect --all;sdm disconnect --all'
+alias sdmlogin="sdm ready --gui -q || sdm login --email=ehui@mux.com"
+
+
