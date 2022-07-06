@@ -20,7 +20,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fzf_configure_bindings --directory=\ct
 set -Ux LSCOLORS gxfxbEaEBxxEhEhBaDaCaD
 
-export KUBECONFIG="/Users/ehui/.kube/config"
+export KUBECONFIG="/Users/ellenhui/.kube/config"
 export REPO="/Users/ehui/go/src/github.com/muxinc/mux"
 # export GOPACKAGESDRIVER=$REPO/tools/bazel/gopackagesdriver.sh
 export LOCAL_REGISTRY="registry.localhost:5000"
