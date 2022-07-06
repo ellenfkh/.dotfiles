@@ -20,8 +20,7 @@ syntax on
 
 set omnifunc=syntaxcomplete#Complete
 nmap <C-P> :FZF<CR>
-:map <F2> :NERDTreeToggle<CR>
-
+map <F2> :NERDTreeToggle<CR>
 
 " LSP "
 
@@ -54,8 +53,29 @@ local on_attach = function(client, bufnr)
 
 end 
 
+local f=io.open("./tools/bazel/gopackagesdriver.sh","r")
+if f~=nil then 
+  io.close(f) 
+  vim.fn.setenv("GOPACKAGESDRIVER", "./tools/bazel/gopackagesdriver.sh")
+end
+
 lspconfig.gopls.setup{
     on_attach = on_attach,
+    settings = {
+      gopls = {
+        env = {
+          GOPACKAGESDRIVER = "/Users/ehui/go/src/github.com/muxinc/mux/tools/bazel/gopackagesdriver.sh"
+        },
+        directoryFilters = {
+          "-bazel-bin",
+          "-bazel-out",
+          "-bazel-testlogs",
+          "-bazel-mypkg",
+        },
+        ...
+      },
+    },
+
     init_options = { usePlaceholders = true }
 }
 
