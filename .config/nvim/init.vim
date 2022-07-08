@@ -64,7 +64,7 @@ lspconfig.gopls.setup{
     settings = {
       gopls = {
         env = {
-          GOPACKAGESDRIVER = "/Users/ehui/go/src/github.com/muxinc/mux/tools/bazel/gopackagesdriver.sh"
+          GOPACKAGESDRIVER = "/Users/ellenhui/go/src/github.com/muxinc/mux/tools/bazel/gopackagesdriver.sh"
         },
         directoryFilters = {
           "-bazel-bin",

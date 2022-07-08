@@ -48,7 +48,7 @@ end
 
 
 function fish_right_prompt --description 'Write out the prompt'
-    set kctx (kubectl config current-context | cut -d '_' -f 2) 
+    set kctx (kubectl config current-context | cut -d '@' -f 2) 
     set kns (kubectl config view --minify -o jsonpath='{..namespace}')
 
     printf '%s%s%s' (set_color -o yellow) $kctx (set_color -o white) ' | ' (set_color -o green) $kns 
