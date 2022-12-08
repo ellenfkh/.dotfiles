@@ -26,6 +26,8 @@ export REPO="/Users/ellenhui/go/src/github.com/muxinc/mux"
 export LOCAL_REGISTRY="registry.localhost:5000"
 export VAULT_ADDR="https://vault.staging.mux.io"
 export NO_K8S_CHECK=1
+export GPG_TTY=$(tty)
+
 
 alias sdmlogin="sdm ready --gui -q || sdm login --email=ehui@mux.com"
 
@@ -35,3 +37,4 @@ alias sdmlogin="sdm ready --gui -q || sdm login --email=ehui@mux.com"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/ellenhui/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/ellenhui/Downloads/google-cloud-sdk/path.fish.inc'; end
+
