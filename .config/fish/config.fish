@@ -21,7 +21,12 @@ fzf_configure_bindings --directory=\ct
 set -Ux LSCOLORS gxfxbEaEBxxEhEhBaDaCaD
 
 export KUBECONFIG="/Users/ellenhui/.kube/config"
+
+# This doesn't play nice with some of the scripts
+#export KUBECONFIG="/Users/ellenhui/.kube/configs/tilt:/Users/ellenhui/.kube/configs/sdm"
+
 export REPO="/Users/ellenhui/go/src/github.com/muxinc/mux"
+
 # export GOPACKAGESDRIVER=$REPO/tools/bazel/gopackagesdriver.sh
 export LOCAL_REGISTRY="registry.localhost:5000"
 export VAULT_ADDR="https://vault.staging.mux.io"
@@ -31,9 +36,6 @@ export GPG_TTY=$(tty)
 
 alias sdmlogin="sdm ready --gui -q || sdm login --email=ehui@mux.com"
 
-
-# The next line updates PATH for the Google Cloud SDK.
-# if [ -f '/Users/ehui/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/ehui/Downloads/google-cloud-sdk/path.fish.inc'; end
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/ellenhui/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/ellenhui/Downloads/google-cloud-sdk/path.fish.inc'; end
